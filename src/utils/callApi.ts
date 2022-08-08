@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 import * as crypto from "crypto";
 import fetch from "node-fetch";
-import { TextEncoder } from "node:util";
+import { TextEncoder } from "util";
 
 
 // URL

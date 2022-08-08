@@ -1,4 +1,4 @@
-import { Service, PlatformAccessory, CharacteristicValue, Characteristic } from 'homebridge';
+import { Service, PlatformAccessory } from 'homebridge';
 import { StationDetail } from '../model';
 import { SolisSensorPlatform } from '../platform';
 import { callApi } from '../utils/callApi';
