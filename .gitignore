@@ -120,3 +120,5 @@ dist
 .pnp.*
 
 debug
+development.md
+.DS_STORE
