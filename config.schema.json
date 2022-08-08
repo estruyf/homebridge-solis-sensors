@@ -9,19 +9,19 @@
         "title": "ID key",
         "type": "string",
         "required": true,
-        "default": "Solis id key"
+        "default": ""
       },
       "keySecret": {
         "title": "Secret key",
         "type": "string",
         "required": true,
-        "default": "Solis secret key"
+        "default": ""
       },
       "stationId": {
         "title": "Station ID",
         "type": "string",
         "required": true,
-        "default": "Solis station ID"
+        "default": ""
       }
     }
   }

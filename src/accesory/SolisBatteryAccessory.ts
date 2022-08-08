@@ -72,6 +72,12 @@ export class SolisBatteryAccessory {
         this.batterySensorService.updateCharacteristic(this.platform.Characteristic.ChargingState, this.platform.Characteristic.ChargingState.NOT_CHARGING);
       }
 
+      if (batteryData.data.batteryPower < 0) {
+        this.batterySensorService.updateCharacteristic(this.platform.Characteristic.Name, `Battery: ${batteryData.data.batteryPower}${batteryData.data.batteryPowerStr}`);
+      } else {
+        this.batterySensorService.updateCharacteristic(this.platform.Characteristic.Name, `Battery`);
+      }
+
       // Update the other sensors
       this.solarSensorService.updateCharacteristic(this.platform.Characteristic.CurrentAmbientLightLevel, this.convertPowerNumber(batteryData.data.power));
       this.solarSensorService.updateCharacteristic(this.platform.Characteristic.Name, `Solar: ${(batteryData.data.porwerPercent*100).toFixed(2)}%`);
@@ -80,7 +86,7 @@ export class SolisBatteryAccessory {
       this.netSensorService.updateCharacteristic(this.platform.Characteristic.StatusActive, batteryData.data.psum > 0);
       this.netSensorService.updateCharacteristic(this.platform.Characteristic.Name, `Net: ${batteryData.data.psum.toFixed(3)}${batteryData.data.psumStr}`);
 
-      const totalLoad = (batteryData.data.power-batteryData.data.psum);
+      const totalLoad = (batteryData.data.power + Math.abs(batteryData.data.batteryPower) -batteryData.data.psum);
       this.loadSensorService.updateCharacteristic(this.platform.Characteristic.CurrentAmbientLightLevel, this.convertPowerNumber(totalLoad));
       this.loadSensorService.updateCharacteristic(this.platform.Characteristic.Name, `Usage: ${totalLoad.toFixed(3)}${batteryData.data.psumStr}`);
 
@@ -111,6 +117,7 @@ export class SolisBatteryAccessory {
       return 0.0001;
     }
 
-    return Math.abs(Math.round((value + Number.EPSILON) * 10) / 10)
+    const newValue = Math.abs(Math.round((value + Number.EPSILON) * 10) / 10);
+    return newValue === 0 ? 0.0001 : newValue;
   }
 }
