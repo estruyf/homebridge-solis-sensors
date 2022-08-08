@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "private": false,
   "displayName": "HomeBridge Solis Sensors",
   "name": "@estruyf/homebridge-solis-sensors",
   "version": "0.0.1",
