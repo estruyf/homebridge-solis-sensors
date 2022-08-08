@@ -1,15 +1,27 @@
 {
-  "pluginAlias": "ExampleHomebridgePlugin",
+  "pluginAlias": "SolisSensors",
   "pluginType": "platform",
   "singular": true,
   "schema": {
     "type": "object",
     "properties": {
-      "name": {
-        "title": "Name",
+      "keyId": {
+        "title": "ID key",
         "type": "string",
         "required": true,
-        "default": "Example Dynamic Platform"
+        "default": "Solis id key"
+      },
+      "keySecret": {
+        "title": "Secret key",
+        "type": "string",
+        "required": true,
+        "default": "Solis secret key"
+      },
+      "stationId": {
+        "title": "Station ID",
+        "type": "string",
+        "required": true,
+        "default": "Solis station ID"
       }
     }
   }

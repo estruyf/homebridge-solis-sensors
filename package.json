@@ -1,16 +1,16 @@
 {
   "private": true,
-  "displayName": "Plugin Name",
-  "name": "homebridge-plugin-name",
+  "displayName": "HomeBridge Solis Sensors",
+  "name": "@estruyf/homebridge-solis-sensors",
   "version": "1.0.0",
   "description": "A short description about what your plugin does.",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/USERNAME/GITHUB_PROJECT_NAME.git"
+    "url": "git://github.com/estruyf/homebridge-solis-sensors.git"
   },
   "bugs": {
-    "url": "https://github.com/USERNAME/GITHUB_PROJECT_NAME/issues"
+    "url": "https://github.com/estruyf/homebridge-solis-sensors/issues"
   },
   "engines": {
     "node": ">=14.18.1",
@@ -26,9 +26,14 @@
   "keywords": [
     "homebridge-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "node-fetch": "^2.6.7"
+  },
   "devDependencies": {
-    "@types/node": "^16.10.9",
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^16.11.47",
+    "@types/node-fetch": "^2.6.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.1",
