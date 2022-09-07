@@ -2,7 +2,7 @@
   "private": true,
   "displayName": "HomeBridge Solis Sensors",
   "name": "@estruyf/homebridge-solis-sensors",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Solis Sensor Service for HomeBridge",
   "license": "MIT",
   "repository": {
