@@ -22,6 +22,30 @@
         "type": "string",
         "required": true,
         "default": ""
+      },
+      "batterySensor": {
+        "title": "Enable battery sensor",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      },
+      "solarSensor": {
+        "title": "Enable solar sensor",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      },
+      "netSensor": {
+        "title": "Enable net usage sensor",
+        "type": "boolean",
+        "required": true,
+        "default": true
+      },
+      "loadSensor": {
+        "title": "Enable total load sensor",
+        "type": "boolean",
+        "required": true,
+        "default": true
       }
     }
   }
