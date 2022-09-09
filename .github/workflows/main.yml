@@ -34,7 +34,7 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
-    - uses: estruyf/gh-action-beta-version@v0.0.9
+    - uses: estruyf/gh-action-beta-version@v0.0.10
       with:
         build-id: '-beta.${{ github.run_id }}'
         path: package.json
