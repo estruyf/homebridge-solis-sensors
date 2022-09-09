@@ -46,6 +46,12 @@
         "type": "boolean",
         "required": true,
         "default": true
+      },
+      "multiplier": {
+        "title": "A multiplier number for the sensors. As a sensor uses lux as a unit, you can multiply it to get a more useful unit that you can use in your automation.",
+        "type": "number",
+        "required": false,
+        "default": 1
       }
     }
   }

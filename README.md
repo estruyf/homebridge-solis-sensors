@@ -22,7 +22,8 @@ This Homebridge plugin brings a couple of Solis sensors to the Homebridge platfo
       "batterySensor": true,
       "solarSensor": true,
       "netSensor": true,
-      "loadSensor": true
+      "loadSensor": true,
+      "multiplier": 100
     }
   ]
 }

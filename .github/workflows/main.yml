@@ -33,10 +33,12 @@ jobs:
       if: github.ref == 'refs/heads/master'
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        
-    - name: Update the package version
-      if: github.ref == 'refs/heads/dev'
-      run: node scripts/update-package-version.js $GITHUB_RUN_ID
+
+    - uses: estruyf/gh-action-beta-version@v0.0.9
+      with:
+        build-id: '-beta.${{ github.run_id }}'
+        path: package.json
+        append-or-replace: 'append'
         
     - name: Publish beta release
       run: npm publish --tag next --access public
