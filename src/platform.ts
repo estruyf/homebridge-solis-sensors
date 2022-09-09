@@ -20,14 +20,14 @@ export class SolisSensorPlatform implements DynamicPlatformPlugin {
     public readonly config: PlatformConfig,
     public readonly api: API,
   ) {
-    this.log.debug('Finished initializing platform:', this.config.name);
+    this.log.debug(`Finished initializing platform:`, this.config.name);
 
     // When this event is fired it means Homebridge has restored all cached accessories from disk.
     // Dynamic Platform plugins should only register new accessories after this event was fired,
     // in order to ensure they weren't added to homebridge already. This event can also be used
     // to start discovery of new accessories.
-    this.api.on('didFinishLaunching', () => {
-      log.debug('Executed didFinishLaunching callback');
+    this.api.on(`didFinishLaunching`, () => {
+      log.debug(`Executed didFinishLaunching callback`);
       // run the method to discover / register your devices as accessories
       this.discoverDevices();
     });
@@ -38,7 +38,7 @@ export class SolisSensorPlatform implements DynamicPlatformPlugin {
    * It should be used to setup event handlers for characteristics and update respective values.
    */
   configureAccessory(accessory: PlatformAccessory) {
-    this.log.info('Loading accessory from cache:', accessory.displayName);
+    this.log.info(`Loading accessory from cache:`, accessory.displayName);
 
     // add the restored accessory to the accessories cache so we can track if it has already been registered
     this.accessories.push(accessory);
@@ -50,14 +50,14 @@ export class SolisSensorPlatform implements DynamicPlatformPlugin {
    * must not be registered again to prevent "duplicate UUID" errors.
    */
   discoverDevices() {
-    const batteryName = 'Solis Battery';
-    const batteryUUID = '9e6b88d3-b11a-483c-92c3-0cf41d4bd416';
+    const batteryName = `Solis Battery`;
+    const batteryUUID = `9e6b88d3-b11a-483c-92c3-0cf41d4bd416`;
 
     const existingAccessory = this.accessories.find(accessory => accessory.UUID === batteryUUID);
 
     if (existingAccessory) {
       // the accessory already exists
-      this.log.info('Restoring existing accessory from cache:', existingAccessory.displayName);
+      this.log.info(`Restoring existing accessory from cache:`, existingAccessory.displayName);
 
       // if you need to update the accessory.context then you should run `api.updatePlatformAccessories`. eg.:
       // existingAccessory.context.device = device;
@@ -73,7 +73,7 @@ export class SolisSensorPlatform implements DynamicPlatformPlugin {
       // this.log.info('Removing existing accessory from cache:', existingAccessory.displayName);
     } else {
       // the accessory does not yet exist, so we need to create it
-      this.log.info('Adding new accessory:', batteryName);
+      this.log.info(`Adding new accessory:`, batteryName);
 
       // create a new accessory
       const accessory = new this.api.platformAccessory(batteryName, batteryUUID);
