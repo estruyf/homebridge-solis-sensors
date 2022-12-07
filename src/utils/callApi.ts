@@ -5,8 +5,8 @@ import { TextEncoder } from "util";
 
 
 // URL
-const apiUrl = `https://www.soliscloud.com:15555`;
-// const apiUrl = `https://www.soliscloud.com:13333`;
+// const apiUrl = `https://www.soliscloud.com:15555`;
+const apiUrl = `https://www.soliscloud.com:13333`;
 
 export async function callApi<T>(url: string, bodyValue: any, keyId: string, KeySecret: string): Promise<T | null> {
   // Body
